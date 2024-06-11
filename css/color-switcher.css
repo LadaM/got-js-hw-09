@@ -1,0 +1,27 @@
+.button {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 0;
+    border: 1px solid #212121;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.button:not(:disabled) {
+    background-color: whitesmoke;
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.button:disabled {
+    background-color: lightgrey;
+    pointer-events: none;
+    opacity: 50%;
+    border: 1px solid darkgray;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 40vh;
+}
