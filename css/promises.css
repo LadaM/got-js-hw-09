@@ -1,0 +1,37 @@
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+
+.form input {
+    width: 100%;
+}
+
+.form .button {
+  margin: 0;
+}
+
+@media screen and (min-width: 1057px) {
+  .form {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .form input {
+    width: auto;
+    flex: 1;
+  }
+
+  #submitBtn {
+    flex: none;
+  }
+}

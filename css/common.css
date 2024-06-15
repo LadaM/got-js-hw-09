@@ -1,5 +1,6 @@
 @import "color-switcher.css";
 @import "timer.css";
+@import "promises.css";
 
 * {
   box-sizing: border-box;
