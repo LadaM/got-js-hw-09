@@ -3,14 +3,27 @@ import Notiflix from 'notiflix';
 
 const form = document.querySelector('.form');
 const submitButton = form.querySelector('button[type="submit"]');
-submitButton.disabled = true; // Disable button by default
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
+  const success_msg = `✅ Fulfilled promise ${position} in ${delay}ms`;
+  const failure_msg = `❌ Rejected promise ${position} in ${delay}ms`;
   if (shouldResolve) {
-    Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+    try {
+      Notiflix.Notify.success(success_msg);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log(success_msg);
+    }
   } else {
-    Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+    try {
+      Notiflix.Notify.failure(failure_msg);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log(failure_msg);
+    }
   }
 }
 
@@ -30,7 +43,6 @@ submitButton.addEventListener('click', (event) => {
 
 const inputs = [form.elements.delay, form.elements.step, form.elements.amount];
 const checkInputs = () => {
-  console.log(inputs);
   let allFilled = true;
   inputs.forEach((input) => {
     if (input.value === '') {

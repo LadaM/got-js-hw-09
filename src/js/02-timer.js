@@ -10,7 +10,12 @@ const date_time_picker = flatpickr('#datetime-picker', {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
-      Notiflix.Notify.failure('Please choose a date in the future');
+      try {
+        Notiflix.Notify.failure('Please choose a date in the future');
+      } catch (error) {
+        console.log(error);
+        window.alert('Please choose a date in the future');
+      }
     } else {
       startButton.removeAttribute('disabled');
     }
@@ -60,7 +65,7 @@ function setTimer() {
     if (!intervalCleared) {
       clearInterval(interval);
       intervalCleared = true;
-      Notiflix.Notify.success('Time is up!');
+      // Notiflix.Notify.success('Time is up!');
       startButton.setAttribute('disabled', 'true');
     }
   }
